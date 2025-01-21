@@ -1,0 +1,91 @@
+{
+  "fetch": {
+    "type": "success",
+    "success": {
+      "data": {
+        "bill": {
+          "additionalInfo": [
+            {
+              "name": "Penalty fees",
+              "value": "100.20"
+            }
+          ],
+          "amount": "6000",
+          "billDate": "2020-08-22",
+          "billNumber": "4GFNFBD8R3",
+          "billPeriod": "ONETIME",
+          "customerName": "Evelyn JADHV",
+          "dueDate": "2020-08-22"
+        },
+        "context": null,
+        "fetchAPIStatus": "Active",
+        "paymentLimits": [
+          {
+            "maxLimit": 49999,
+            "minLimit": 1,
+            "paymentMode": "CASH"
+          }
+        ]
+      },
+      "statusCode": "success",
+      "statusMessage": "API is successful",
+      "traceId": null
+    },
+    "fail": {
+      "data": {
+        "context": null,
+        "fetchAPIStatus": "Cancelled"
+      },
+      "statusCode": "ERR111",
+      "statusMessage": "Failed to fetch bill details",
+      "traceId": null
+    },
+    "acknowledged": {
+      "data": {
+        "context": null,
+        "fetchAPIStatus": "Acknowledged"
+      },
+      "statusCode": "ERR000",
+      "statusMessage": "No data found",
+      "traceId": null
+    }
+  },
+  "paymentStatus": {
+    "type": "success",
+    "success": {
+      "data": {
+        "amount": null,
+        "billerId": null,
+        "status": "Settled",
+        "txnId": null,
+        "txnMode": "CASH"
+      },
+      "statusCode": "success",
+      "statusMessage": "API is successful",
+      "traceId": null
+    },
+    "fail": {
+      "data": {
+        "status": "Cancelled",
+        "txnMode": "CASH"
+      },
+      "statusCode": "success",
+      "statusMessage": "API is successful",
+      "traceId": null
+    },
+    "pending": {
+      "data": {
+        "status": "Executed",
+        "txnMode": "CASH"
+      },
+      "statusCode": "success",
+      "statusMessage": "API is successful",
+      "traceId": null
+    },
+    "noData": {
+      "statusCode": "ERR000",
+      "statusMessage": "No Data found",
+      "traceId": null
+    }
+  }
+}

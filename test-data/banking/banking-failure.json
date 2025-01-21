@@ -1,0 +1,18 @@
+{
+"responseConfigMap" :
+        {
+                "0":{ "npciResponseCode":"M3"},
+                "10":{ "npciResponseCode":"00"},
+                "100":{ "npciResponseCode":"00"},
+                "1000":{ "npciResponseCode":"00"},
+                "10000":{ "npciResponseCode":"00"},
+                "200":{ "npciResponseCode":"DS"},
+                "300":{ "npciResponseCode":"DD"},
+                "400":{ "npciResponseCode":"M3"},
+                "500":{ "npciResponseCode":"UH"},
+                "600":{ "npciResponseCode":"VT"},
+                "700":{ "npciResponseCode":"U3"},
+                "800":{ "npciResponseCode":"91"},
+                "900":{ "npciResponseCode":"XA"}
+        }
+}
