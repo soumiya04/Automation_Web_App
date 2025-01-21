@@ -154,7 +154,7 @@ public class LoginPage extends BasePage {
 						waitUntilElementIsVisible(novopayHomePage);
 						
 						System.out.println("Page displayed");
-				        bannerCloseLogin();
+				    //    bannerCloseLogin();
 						
 					} else if (txnOtp.equals("")) {
 						waitUntilElementIsVisible(otpErrorMsg);
