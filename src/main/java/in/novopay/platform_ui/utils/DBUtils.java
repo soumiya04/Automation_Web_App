@@ -15,6 +15,7 @@ import java.util.Map;
 public class DBUtils extends JavaUtils {
 	protected Connection conn;
 	protected Statement stmt;
+	
 	// private String codeId;
 	private static String organizationId;
 
@@ -2157,6 +2158,8 @@ public class DBUtils extends JavaUtils {
 					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
 					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
 					+ "') AND `status` = 'ACTIVE') AND attr_key = 'FINGPAY_AEPS_LAST_LOGIN_DATE';";
+			
+			
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating FINGPAY_AEPS_LAST_LOGIN_DATE Status as " + string);

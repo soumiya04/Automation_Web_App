@@ -362,7 +362,7 @@ public class FINGPAYBankingPage extends BasePage {
 
 			try {
 				waitUntilElementIsVisible(novopayHomePage);
-				System.out.println("Home page Visible");
+				System.out.println("Home page Visible ..");
 				
 
 				String batchConfigSection = "bankingstatusenquiry";

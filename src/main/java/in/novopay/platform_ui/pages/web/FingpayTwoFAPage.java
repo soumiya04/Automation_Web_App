@@ -3,23 +3,18 @@ package in.novopay.platform_ui.pages.web;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Map;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import in.novopay.platform_ui.utils.BasePage;
 import in.novopay.platform_ui.utils.CommonUtils;
 import in.novopay.platform_ui.utils.DBUtils;
 import in.novopay.platform_ui.utils.ServerUtils;
 
-public class FingpayTwoFAPage extends BasePage {
+public class FINGPAYTwoFAPage extends BasePage {
 
 	DBUtils dbUtils = new DBUtils();
 	CommonUtils commonUtils = new CommonUtils(wdriver);
@@ -85,35 +80,36 @@ public class FingpayTwoFAPage extends BasePage {
         
     	@FindBy(xpath = "//img[@src='assets/Home/novopay.svg']")
 		WebElement novopayHomePage;
+    	
+    	@FindBy(xpath = "//span[contains(text(),'Withdrawal')]")
+		WebElement withdrawalTab;
 
 
 	// Load all objects
-	public FingpayTwoFAPage(WebDriver wdriver) {
+	public FINGPAYTwoFAPage(WebDriver wdriver) {
 		super(wdriver);
 		PageFactory.initElements(wdriver, this);
 	}
         // Perform action on page based on given commands
-	public void fingpayTwoFA(Map<String, String> usrData)
+	public void fingpayTwofa(Map<String, String> usrData)
 			throws InterruptedException, AWTException, IOException, ClassNotFoundException {
 
 		try {
 		    // home page visible
 			waitUntilElementIsVisible(novopayHomePage);
-			System.out.println("Home page Visible");
+			System.out.println("Home page Visible test");
 		
 
-			// Refresh wallet balances whenever required
-			if (usrData.get("REFRESH").equalsIgnoreCase("YES")) {
-				//mmonUtils.refreshBalance(); // refresh wallet balances
+
 			
    
               commonUtils.displayInitialBalance("retailer"); // display main wallet balance
 			commonUtils.displayInitialBalance("cashout"); // display cashout wallet balance
 
 		//ommonUtils.waitForSpinner();
-                waitUntilElementIsClickableAndClickTheElement(BankingOption);
-                 BankingOption.click();
-                 System.out.println("Fingpay Banking option clicked");
+                waitUntilElementIsClickableAndClickTheElement(withdrawalTab);
+                withdrawalTab.click();
+                 System.out.println("Fingpay Banking withdrawal option clicked");
                  waitUntilElementIsVisible(TwoFAPage);
                  System.out.println("2FA Page displayed");
                  waitUntilElementIsClickableAndClickTheElement(AadhaarNumberField);
@@ -138,7 +134,7 @@ public class FingpayTwoFAPage extends BasePage {
 				DoneButton.click();
 
 			        }
-			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Test Case Failed");

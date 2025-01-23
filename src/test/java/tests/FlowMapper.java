@@ -3,6 +3,8 @@ package tests;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -60,7 +62,7 @@ public class FlowMapper {
 			dbUtils.updateAepsPartner("RBL", mobileNumFromIni());
 			dbUtils.updateRBLTwoFAStatus(rblTwoFAFromIni(), mobileNumFromIni());
 		}
-		else if (usrData.get("FEATURE").equalsIgnoreCase("FinpayTwoFA")) {
+		else if (usrData.get("FEATURE").equalsIgnoreCase("TwoFA")) {
 			dbUtils.updateAepsPartner("FINGPAY", mobileNumFromIni());
 			dbUtils.updateTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
 		}
@@ -223,8 +225,17 @@ public class FlowMapper {
 
 	// Get Fingpay TwoFA from Ini file
 	public String fingpayTwoFAFromIni() {
-        return dbUtils.getFingpayTwoFAFromIni("FingpayTwoFA");
+		  // Generate yesterday's date in yyMMdd format
+	    String yesterdayDate = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("ddMMYY"));
+
+	    // Append the date to the Random value for the twoFAStatus
+	    String randomValue = yesterdayDate ;
+
+	    // Pass the value to dbUtils.getFingpayTwoFAFromIni
+	    return dbUtils.getFingpayTwoFAFromIni(randomValue);
     }
+
+
 	// Get mobile number from Ini file
 	public String mobileNumFromIni() {
 		return dbUtils.getLoginMobileFromIni("RetailerMobNum");
