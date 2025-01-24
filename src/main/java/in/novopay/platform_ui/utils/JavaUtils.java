@@ -394,6 +394,47 @@ public class JavaUtils extends LoadableComponent {
 		}
 		return null;
 	}
+	public String getYBlTwoFAFromIni(String twoFAStatus) {
+		Ini ini;
+		try {
+			ini = new Ini(new File("./data.ini"));
+			if (twoFAStatus.equalsIgnoreCase("Random")) {
+				ini.put("YblData", "twoFAStatus", generateRandomMobileNumber());
+				ini.store();
+				return ini.get("YblData", "twoFAStatus");
+			} else if (twoFAStatus.equalsIgnoreCase("GetAadhaarNum")) {
+				return ini.get("YblData", "twoFAStatus");
+			} else {
+				ini.put("YblData", "TwoFAStatus", twoFAStatus);
+				ini.store();
+				return ini.get("YblData", "TwoFAStatus");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String getNSDLTwoFAFromIni(String twoFAStatus) {
+		Ini ini;
+		try {
+			ini = new Ini(new File("./data.ini"));
+			if (twoFAStatus.equalsIgnoreCase("Random")) {
+				ini.put("NsdlData", "twoFAStatus", generateRandomMobileNumber());
+				ini.store();
+				return ini.get("NsdlData", "twoFAStatus");
+			} else if (twoFAStatus.equalsIgnoreCase("GetAadhaarNum")) {
+				return ini.get("NsdlData", "twoFAStatus");
+			} else {
+				ini.put("NsdlData", "TwoFAStatus", twoFAStatus);
+				ini.store();
+				return ini.get("NsdlData", "TwoFAStatus");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public String getRBLTwoFAFromIni(String twoFAStatus) {
 		Ini ini;

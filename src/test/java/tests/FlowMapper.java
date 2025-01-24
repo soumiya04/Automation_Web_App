@@ -64,9 +64,18 @@ public class FlowMapper {
 		}
 		else if (usrData.get("FEATURE").equalsIgnoreCase("TwoFA")) {
 			dbUtils.updateAepsPartner("FINGPAY", mobileNumFromIni());
-			dbUtils.updateTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
+			dbUtils.updateFingpayTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
+		}
+	
+		else if (usrData.get("FEATURE").equalsIgnoreCase("YTwoFA")) {
+			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
+			dbUtils.updateYblTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
 		}
 		
+		else if (usrData.get("FEATURE").equalsIgnoreCase("NTwoFA")) {
+			dbUtils.updateAepsPartner("NSDL", mobileNumFromIni());
+			dbUtils.updatensdlTwoFAStatus(nsdlTwoFAFromIni(), mobileNumFromIni());
+		}
 		else if (usrData.get("FEATURE").equalsIgnoreCase("EKYC")) {
 			dbUtils.updateAepsPartner("RBL", mobileNumFromIni());
 			dbUtils.updateRBLEKYCStatus("PENDING", mobileNumFromIni());
@@ -234,8 +243,29 @@ public class FlowMapper {
 	    // Pass the value to dbUtils.getFingpayTwoFAFromIni
 	    return dbUtils.getFingpayTwoFAFromIni(randomValue);
     }
+	// Get YBL TwoFA from Ini file
+	public String yblTwoFAFromIni() {
+		  // Generate yesterday's date in yyMMdd format
+	    String yesterdayDate = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("ddMMYY"));
 
+	    // Append the date to the Random value for the twoFAStatus
+	    String randomValue = yesterdayDate ;
 
+	  // Pass the value to dbUtils.getYBLTwoFAFromIni
+	    return dbUtils.getYBlTwoFAFromIni(randomValue);
+	}
+	// Get NSDL TwoFA from Ini file
+	public String nsdlTwoFAFromIni() {
+		  // Generate yesterday's date in yyMMdd format
+	    String yesterdayDate = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("ddMMYY"));
+
+	    // Append the date to the Random value for the twoFAStatus
+	    String randomValue = yesterdayDate ;
+
+	    // Pass the value to dbUtils.getYBLTwoFAFromIni
+	    return dbUtils.getNSDLTwoFAFromIni(randomValue);
+  }
+	
 	// Get mobile number from Ini file
 	public String mobileNumFromIni() {
 		return dbUtils.getLoginMobileFromIni("RetailerMobNum");

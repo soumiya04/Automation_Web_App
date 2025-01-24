@@ -2151,7 +2151,7 @@ public class DBUtils extends JavaUtils {
 		}
 	}
 
-	public void updateTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
+	public void updateFingpayTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
 		try {
 			conn = createConnection("master");
 			String query = "UPDATE master.organization_attribute SET attr_value = '" + string
@@ -2168,7 +2168,43 @@ public class DBUtils extends JavaUtils {
 			sqe.printStackTrace();
 		}
 	}
+	
+	public void updateYblTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
+		try {
+			conn = createConnection("master");
+			String query = "UPDATE master.organization_attribute SET attr_value = '" + string
+					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
+					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
+					+ "') AND `status` = 'ACTIVE') AND attr_key = 'YBL_AEPS_LAST_LOGIN_DATE';";
+			
+			
+			stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			System.out.println("Updating YBL_AEPS_LAST_LOGIN_DATE Status as " + string);
+		} catch (SQLException sqe) {
+			System.out.println("Error executing query");
+			sqe.printStackTrace();
+		}
+	}
 
+	public void updatensdlTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
+		try {
+			conn = createConnection("master");
+			String query = "UPDATE master.organization_attribute SET attr_value = '" + string
+					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
+					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
+					+ "') AND `status` = 'ACTIVE') AND attr_key = 'YBL_AEPS_LAST_LOGIN_DATE';";
+			
+			
+			stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			System.out.println("Updating NSDL_AEPS_LAST_LOGIN_DATE Status as " + string);
+		} catch (SQLException sqe) {
+			System.out.println("Error executing query");
+			sqe.printStackTrace();
+		}
+	}
+	
 	public void updateRBLTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
 		try {
 			conn = createConnection("master");
