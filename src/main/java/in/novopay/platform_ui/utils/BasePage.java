@@ -99,6 +99,8 @@ public class BasePage extends JavaUtils {
 		System.out.println("Opened URL " + url);
 	
 	}
+	
+	
 
 	/**
 	 * Close the tab

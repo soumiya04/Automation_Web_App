@@ -71,7 +71,12 @@ public class FlowMapper {
 			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
 			dbUtils.updateYblTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
 		}
-		
+		else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {
+			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
+			dbUtils.updateDepositerPartner("YBL", mobileNumFromIni());
+			dbUtils.updateAadhaarpayPartner("YBL", mobileNumFromIni());
+	
+		}
 		else if (usrData.get("FEATURE").equalsIgnoreCase("NTwoFA")) {
 			dbUtils.updateAepsPartner("NSDL", mobileNumFromIni());
 			dbUtils.updatensdlTwoFAStatus(nsdlTwoFAFromIni(), mobileNumFromIni());

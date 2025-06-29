@@ -53,7 +53,8 @@ public class TvsePage extends BasePage {
 	@FindBy(xpath = "//h1[contains(text(),'Cash Services')]")
 	WebElement pageTitle;
 
-	@FindBy(xpath = "//span[contains(text(),'TVS-E')]")
+	//@FindBy(xpath = "//span[contains(text(),'TVS-E')]")
+	@FindBy(xpath = "//div[@class='biller-name' and contains(text(), ' TVS-E ')]")
 	WebElement TVSEIcon;
 	
 	@FindBy(xpath ="//div[contains(@class,'biller-name') and contains(text(),'TVS-E')]")
@@ -127,6 +128,15 @@ public class TvsePage extends BasePage {
 	
 	   @FindBy(xpath = "//div[@class='modal-header completed']/h4")
        WebElement successscreen;
+	   
+	   @FindBy(xpath = "//span[normalize-space(text())='HDB Finance']")
+	   	WebElement hbdCms;
+	       
+	       @FindBy(xpath = " //div[@class='cross-icon']/img[contains(@src, 'cross_icon.png')]")
+	   	WebElement closeButton;
+	       
+	       @FindBy(xpath = "//input[@id='site-search']")
+	   	WebElement selectField;
 
 
 	// Load all objects
@@ -152,8 +162,13 @@ public class TvsePage extends BasePage {
 	commonUtils.displayInitialBalance("cashout"); // display cashout wallet balance
 
 			//click on view all
-			waitUntilElementIsClickableAndClickTheElement(viewAll);
-			System.out.println("View All clicked");
+			//waitUntilElementIsClickableAndClickTheElement(viewAll);
+			//System.out.println("View All clicked");
+	
+	waitUntilElementIsClickableAndClickTheElement(hbdCms);
+	  waitUntilElementIsClickableAndClickTheElement(closeButton);
+		waitUntilElementIsClickableAndClickTheElement(selectField);
+		selectField.sendKeys("tvs");
 			
 			// Click on Swiggy icon
 	waitUntilElementIsClickableAndClickTheElement(TVSEIcon);

@@ -25,13 +25,13 @@ public class LoginPage extends BasePage {
 	@FindBy(id = "regMobileNumber")
 	WebElement mobNum;
 
-	@FindBy(id = "password")
+	@FindBy(id = "pin1")
 	WebElement mPin;
 
 	@FindBy(xpath = "//button[contains(text(),'LOGIN')]")
 	WebElement login;
 
-	@FindBy(xpath = "//*[@id='otp']")
+	@FindBy(xpath = "//input[@id='otp1']")
 	WebElement otp;
 
 	@FindBy(xpath = "//app-otpcomponent//button")
@@ -93,6 +93,18 @@ public class LoginPage extends BasePage {
    
    @FindBy(xpath = "//img[@src='assets/Home/novopay.svg']")
 	WebElement novopayHomePage;
+   
+   @FindBy(xpath = "//div[contains(@class, 'balance') and contains(text(), 'Main Wallet Balance')]")
+	WebElement eyeIconMainWallet;
+   
+   @FindBy(xpath = "//div[contains(@class, 'balance') and contains(text(), 'Cashout Wallet Balance')]")
+	WebElement eyeIconCashoutWallet;
+   
+   @FindBy(xpath = "(//i[contains(@class, 'fa-eye')])[1]")
+	WebElement eyeIconM;
+   @FindBy(xpath = "(//i[contains(@class, 'fa-eye')])[2]")
+   WebElement eyeIconC;
+   
 
 
 	public void login(Map<String, String> usrData) throws ClassNotFoundException, InterruptedException {
@@ -154,7 +166,10 @@ public class LoginPage extends BasePage {
 						waitUntilElementIsVisible(novopayHomePage);
 						
 						System.out.println("Page displayed");
-				    //    bannerCloseLogin();
+				      bannerCloseLogin();
+				      
+				      eyeIcon();
+			
 						
 					} else if (txnOtp.equals("")) {
 						waitUntilElementIsVisible(otpErrorMsg);
@@ -362,5 +377,19 @@ public class LoginPage extends BasePage {
 	    waitUntilElementIsClickableAndClickTheElement(bannerClose);
 	    System.out.println("Banner Closed");
 	}
+		public void eyeIcon(){
+			
+			 System.out.println("eye icon displayed");
+			 waitUntilElementIsVisible(eyeIconMainWallet);
+			 System.out.println("eye icon Mainwallet Visible");
+			  waitUntilElementIsClickableAndClickTheElement(eyeIconM);
+			 waitUntilElementIsVisible(eyeIconCashoutWallet);
+			 System.out.println("eye icon Cashoutwallet Visible");
+			 waitUntilElementIsClickableAndClickTheElement(eyeIconC);
+			 
+				 
+		}
+			 
 
-}
+	}
+

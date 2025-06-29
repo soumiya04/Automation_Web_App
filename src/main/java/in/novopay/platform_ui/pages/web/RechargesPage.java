@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -204,6 +206,11 @@ public class RechargesPage extends BasePage {
 	
 	@FindBy(xpath = "//span[contains(text(),'AIRTEL') and contains(@class,'ng-option-label ng-star-inserted')]")
 	WebElement airtelOperator;
+	
+	@FindBy(xpath = "(//i[contains(@class, 'fa-caret-up')])[2]")
+	WebElement dropdown;
+	
+	
 		
 
 	// Load all objects
@@ -229,10 +236,19 @@ public class RechargesPage extends BasePage {
 
 			commonUtils.displayInitialBalance("retailer"); // display main wallet balance
 			commonUtils.displayInitialBalance("cashout"); // display cashout wallet balance
+			
+			
+		
 
 		mongoDbUtils.updateRechargeVendor(usrData.get("OPERATOR"), usrData.get("VENDOR"));
+	
+		
+		
 			
 			// Click on Recharge icon
+		
+	
+		waitUntilElementIsClickableAndClickTheElement(dropdown);
 						waitUntilElementIsClickableAndClickTheElement(recharges);
 						System.out.println("Recharge icon clicked");
 

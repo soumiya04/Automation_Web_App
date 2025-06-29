@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class DBUtils extends JavaUtils {
+public class DBUtils extends JavaUtils  {
 	protected Connection conn;
 	protected Statement stmt;
 	
@@ -1795,6 +1795,12 @@ public class DBUtils extends JavaUtils {
 
 			System.out.println("Inserting contract: rbl and " + contract.toLowerCase());
 			//System.out.println("Inserting contract:" + contract.toLowerCase());
+			
+			//29/06/25
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
+			
+			
 		} catch (SQLException sqe) {
 			System.out.println("Duplicate entry for contract: " + contract);
 		}
@@ -1827,6 +1833,10 @@ public class DBUtils extends JavaUtils {
 			org_code.add("np_loans");
 			org_code.add("np_chatbot");
 			org_code.add("banking_novopay");
+			org_code.add("YBL_DEPOSIT");
+			org_code.add("FINGPAY_DEPOSIT");
+			org_code.add("YBL_AADHAAR_PAY");
+			org_code.add("FINGPAY_AADHAAR_PAY");
 
 			for (String code : org_code) {
 				String insertQuery = "INSERT INTO `contract` (`organization`, `partner_organization`) "
@@ -1903,12 +1913,48 @@ public class DBUtils extends JavaUtils {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating AEPS Partner as " + partner);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
 		}
 	}
 
+	public void updateDepositerPartner(String partner, String mobNum) throws ClassNotFoundException {
+		try {
+			conn = createConnection("master");
+			String query = "UPDATE master.organization_attribute SET attr_value = '" + partner
+					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
+					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
+					+ "') AND `status` = 'ACTIVE') AND attr_key = 'DEPOSIT_PARTNER';";
+			stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			System.out.println("Updating DEPOSIT Partner as " + partner);
+		} catch (SQLException sqe) {
+			System.out.println("Error executing query");
+			sqe.printStackTrace();
+		}
+	}
+
+
+
+
+public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassNotFoundException {
+		try {
+			conn = createConnection("master");
+			String query = "UPDATE master.organization_attribute SET attr_value = '" + partner
+					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
+					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
+					+ "') AND `status` = 'ACTIVE') AND attr_key = 'AADHAAR_PAY_PARTNER';";
+			stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			System.out.println("Updating AADHAARPAY Partner as " + partner);
+		} catch (SQLException sqe) {
+			System.out.println("Error executing query");
+			sqe.printStackTrace();
+		}
+	}
 	public void updateSettlementPartner(String setpartner, String aepspartner, String mode)
 			throws ClassNotFoundException {
 		try {
@@ -2163,6 +2209,8 @@ public class DBUtils extends JavaUtils {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating FINGPAY_AEPS_LAST_LOGIN_DATE Status as " + string);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
@@ -2181,6 +2229,8 @@ public class DBUtils extends JavaUtils {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating YBL_AEPS_LAST_LOGIN_DATE Status as " + string);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
@@ -2199,6 +2249,8 @@ public class DBUtils extends JavaUtils {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating NSDL_AEPS_LAST_LOGIN_DATE Status as " + string);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();

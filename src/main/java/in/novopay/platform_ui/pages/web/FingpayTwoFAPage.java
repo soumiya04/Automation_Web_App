@@ -51,6 +51,10 @@ public class FINGPAYTwoFAPage extends BasePage {
        @FindBy(xpath = "//div[@class='user-details']/label[@for='aeps-deposit-aadhar-number']/following-sibling::input")
 	WebElement AadhaarNumberField;
        
+       @FindBy(xpath = "//input[@id='aadhaarValue']")
+   	WebElement aadhaarNumber;
+    
+       
        @FindBy(xpath = "//button[contains(text(), 'Proceed')]")
 	WebElement ProceedButton;
      
@@ -83,8 +87,30 @@ public class FINGPAYTwoFAPage extends BasePage {
     	
     	@FindBy(xpath = "//span[contains(text(),'Withdrawal')]")
 		WebElement withdrawalTab;
-
-
+    
+    	@FindBy(xpath = "//h5[@class='modal-title' and normalize-space()='Proceed for E-KYC']")
+		WebElement ekycPage;
+    	
+    	@FindBy(xpath = "//h5[text()=' Verify Mobile No. ']")
+		WebElement verifyNumberPage;
+    	
+    	@FindBy(xpath = "//input[@id='otp']")
+		WebElement ekycOtp;
+    	@FindBy(xpath = "//button[text()=' Verify ']")
+		WebElement verifyButton;
+    	
+    	@FindBy(xpath = "//div[contains(@class, 'transaction-title') and contains(text(), 'KYC Verified Successfully')]")
+		WebElement ekycSuccess;
+    	
+    	@FindBy(xpath = "//button[contains(@class, 'button-primary') and text()='Done']")
+		WebElement done;
+    	
+    	
+    	
+    	
+    	
+    	
+  
 	// Load all objects
 	public FINGPAYTwoFAPage(WebDriver wdriver) {
 		super(wdriver);
@@ -107,9 +133,31 @@ public class FINGPAYTwoFAPage extends BasePage {
 			commonUtils.displayInitialBalance("cashout"); // display cashout wallet balance
 
 		//ommonUtils.waitForSpinner();
+			/*//ekyc
                 waitUntilElementIsClickableAndClickTheElement(withdrawalTab);
                 withdrawalTab.click();
                  System.out.println("Fingpay Banking withdrawal option clicked");
+                 waitUntilElementIsVisible(ekycPage);
+                 System.out.println("Fingpay EKYC Page displayed");
+                 waitUntilElementIsClickableAndClickTheElement(aadhaarNumber);
+                 aadhaarNumber.sendKeys(usrData.get("AADHAAR"));
+                 System.out.println("Aadhaar Number Entered");
+                 waitUntilElementIsClickableAndClickTheElement(ProceedButton);
+                 System.out.println("Proceed clicked");
+                 waitUntilElementIsVisible(verifyNumberPage);
+                 System.out.println("Verify mobile number Page displayed");
+                 waitUntilElementIsClickableAndClickTheElement(ekycOtp);
+                 ekycOtp.sendKeys("111111");
+                 waitUntilElementIsClickableAndClickTheElement(verifyButton);
+                 System.out.println("VerifyButton clicked");
+                 waitUntilElementIsVisible(ekycSuccess);
+                 System.out.println("ekycSuccess displayed");
+                     waitUntilElementIsClickableAndClickTheElement(done);
+             	System.out.println("done button clicked");*/
+             	
+             	//2fa
+             	  waitUntilElementIsClickableAndClickTheElement(withdrawalTab);
+                  withdrawalTab.click();
                  waitUntilElementIsVisible(TwoFAPage);
                  System.out.println("2FA Page displayed");
                  waitUntilElementIsClickableAndClickTheElement(AadhaarNumberField);

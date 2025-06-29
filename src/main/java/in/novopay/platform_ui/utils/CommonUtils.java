@@ -318,8 +318,9 @@ public class CommonUtils extends BasePage {
 	
 	public void chooseWalletScreen(Map<String, String> usrData) throws InterruptedException, ClassNotFoundException {
 		waitUntilElementIsVisible(chooseWalletScreen);
+		
 		System.out.println("Choose a Wallet screen displayed");
-
+		Thread.sleep(2000);
 		// display wallet balances in console
 	//	displayInitialBalance("retailer"); // display main wallet balance
 	//	displayInitialBalance("cashout"); // display cashout wallet balance
