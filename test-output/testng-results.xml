@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-03T18:42:49 IST" name="Default suite" finished-at="2025-07-03T18:44:37 IST" duration-ms="107329">
+  <suite started-at="2025-07-04T00:33:13 IST" name="Default suite" finished-at="2025-07-04T00:35:16 IST" duration-ms="123200">
     <groups>
     </groups>
-    <test started-at="2025-07-03T18:42:49 IST" name="Default test" finished-at="2025-07-03T18:44:37 IST" duration-ms="107329">
+    <test started-at="2025-07-04T00:33:13 IST" name="Default test" finished-at="2025-07-04T00:35:16 IST" duration-ms="123200">
       <class name="tests.FlowMapper">
-        <test-method is-config="true" signature="generateIniFile()[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:42:49 IST" name="generateIniFile" finished-at="2025-07-03T18:42:49 IST" duration-ms="22" status="PASS">
+        <test-method is-config="true" signature="generateIniFile()[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:33:13 IST" name="generateIniFile" finished-at="2025-07-04T00:33:13 IST" duration-ms="39" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateIniFile -->
-        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:42:51 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-03T18:42:52 IST" duration-ms="1110" status="PASS">
+        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:33:15 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-04T00:33:17 IST" duration-ms="1617" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flowMapperTest -->
-        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:42:52 IST" name="result" finished-at="2025-07-03T18:42:52 IST" duration-ms="291" status="PASS">
+        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:33:17 IST" name="result" finished-at="2025-07-04T00:33:17 IST" duration-ms="475" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,7 +33,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- result -->
-        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:42:52 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-03T18:44:32 IST" duration-ms="100245" status="FAIL">
+        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:33:17 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-04T00:35:12 IST" duration-ms="114347" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -43,14 +43,14 @@
           </params>
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(text(), ' Save ')]' (tried for 60 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h5[contains(text(),'Enter 4 digit PIN')]' (tried for 70 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(text(), ' Save ')]' (tried for 60 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h5[contains(text(),'Enter 4 digit PIN')]' (tried for 70 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at in.novopay.platform_ui.utils.BasePage.waitUntilElementIsClickableAndClickTheElement(BasePage.java:377)
-at in.novopay.platform_ui.pages.web.YBLDmtPage.yblDmt(YBLDmtPage.java:227)
+at in.novopay.platform_ui.utils.BasePage.waitUntilElementIsVisible(BasePage.java:353)
+at in.novopay.platform_ui.pages.web.YBLDmtPage.yblDmt(YBLDmtPage.java:198)
 at tests.ui.YBLDmtTest.yBLDmtTest(YBLDmtTest.java:50)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -81,15 +81,15 @@ at org.testng.TestNG.run(TestNG.java:1037)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(), ' Save ')]"}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h5[contains(text(),'Enter 4 digit PIN')]"}
   (Session info: chrome=138.0.7204.97)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'MI-20151052852', ip: '172.16.7.61', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+System info: host: 'MI-20151052852', ip: '192.168.0.105', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.97, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: C:\Users\soumya\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59216}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 81dad3629a094ab5167474e15e831e34
-*** Element info: {Using=xpath, value=//button[contains(text(), ' Save ')]}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.97, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: C:\Users\soumya\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52969}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6da8c30d630509ecfb4544076dcd1b39
+*** Element info: {Using=xpath, value=//h5[contains(text(),'Enter 4 digit PIN')]}
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -110,8 +110,6 @@ at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedCo
 at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:670)
-at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:666)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 ... 32 more
 ]]>
@@ -120,7 +118,7 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flowMapperTest -->
-        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:44:32 IST" name="result" finished-at="2025-07-03T18:44:36 IST" duration-ms="3712" status="PASS">
+        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:35:12 IST" name="result" finished-at="2025-07-04T00:35:15 IST" duration-ms="3599" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -131,7 +129,7 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- result -->
-        <test-method is-config="true" signature="killDriver()[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-03T18:44:36 IST" name="killDriver" finished-at="2025-07-03T18:44:37 IST" duration-ms="534" status="PASS">
+        <test-method is-config="true" signature="killDriver()[pri:0, instance:tests.FlowMapper@f0c8a99]" started-at="2025-07-04T00:35:15 IST" name="killDriver" finished-at="2025-07-04T00:35:16 IST" duration-ms="772" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- killDriver -->
