@@ -20,12 +20,19 @@ public class YBLDmtPage extends BasePage {
 	
 	  @FindBy(xpath = "//img[@src='assets/Home/novopay.svg']")
 			WebElement novopayHomePage;
+	  
 	  @FindBy(xpath = "//span[text()='Money Transfer']")
 	          WebElement moneyTransfer;
-	  @FindBy(xpath = "///input[@id='money-transfer-mobile-number']")
-	  WebElement customerMobileNumber;
+	  
+	  @FindBy(xpath = "//h1[normalize-space()='Home > Money Transfer > Cash to Account']")
+      WebElement moneyTransferPage;
+	  
 	  @FindBy(xpath = "//h1[text()='Cash to Account']")
 	  WebElement cashToAccount;
+
+	  @FindBy(xpath = "//input[@id='money-transfer-mobile-number']")
+	  WebElement customerMobileNumber;
+	  
 	  @FindBy(xpath = "//span[contains(text(), 'Limit remaining for this month: ₹')]")
 	  WebElement limitRemaining;
 	  /*# Extract the text and parse the numeric value
@@ -37,18 +44,19 @@ if 1 <= limit_value <= 25000:
     print("✅ Transaction Allowed")
 else:
     print("❌ Transaction Not Allowed")*/
-	  @FindBy(xpath = "//span[contains(text(), 'Customer KYC')]")
+	  @FindBy(xpath = "//span[contains(text(), 'Customer KYC Complete')]")
 	  		WebElement customerKYC;
+	  
 	  @FindBy(xpath = "//button[text()=' Proceed ']")
 	  WebElement proceedButton;
 	
 	  @FindBy(xpath = "//ng-select[@id='beneficiaryList']//div[@class='ng-select-container']")
 	  WebElement beneficiaryList;
 	  
-	  @FindBy(xpath = "//*[@id=\"ad06f47920f1-2\"]")
+	  @FindBy(xpath = "(//div[@role='option' and contains(@class,'ng-option')])[3]")
 	  WebElement beneficiaryListValue;
 	  
-	  @FindBy(xpath = "/input[@id='money-transfer-amount-to-be-transferred']")
+	  @FindBy(xpath = "//input[@id='money-transfer-amount-to-be-transferred']")
 	  WebElement amountToBeTransferred;
 	  
 	  @FindBy(xpath = "//button[text()=' Submit ']")
@@ -64,8 +72,11 @@ else:
 		@FindBy(xpath = "//h5[contains(text(),'Enter 4 digit PIN')]")
 		WebElement MPINScreen;
 
-		@FindBy(id = "money-transfer-mpin-number")
-		WebElement enterMPIN;
+		//@FindBy(id = "money-transfer-mpin-number")
+		@FindBy(xpath = "//input[@id='money-transfer-mpin-number']")
+        WebElement enterMPIN;
+		
+		
 
 		@FindBy(xpath = "//h5[contains(text(),'Enter 4 digit PIN')]/parent::div/following-sibling::div/following-sibling::div/button[contains(text(),'Submit')]")
 		WebElement submitMPIN;
@@ -83,7 +94,7 @@ else:
 	  @FindBy(xpath = "//button[contains(text(), 'Proceed')]")
 	  WebElement proceedButton1;
 	  
-	  @FindBy(xpath = "//button[contains(text(), 'Enter OTP')]")
+	  @FindBy(xpath = "//b[contains(text(), 'Enter OTP')]")
 	  WebElement enterOTP;
 	  
 	  @FindBy(xpath = "//input[contains(@class, 'otp-input')][1]")
@@ -104,12 +115,13 @@ else:
         PageFactory.initElements(wdriver, this);
 	}
      // Perform action on page based on given commands
-     		public void nsdlBanking(Map<String, String> usrData)
+     		public void yblDmt(Map<String, String> usrData)
      				throws InterruptedException, AWTException, IOException, ClassNotFoundException {
 
      			try {
      				
-     				
+     				System.out.println("TESTING");
+    				
      				commonUtils.displayInitialBalance("retailer"); // display main wallet balance
     				commonUtils.displayInitialBalance("cashout"); // display cashout wallet balance
     				System.out.println("Initial balances displayed");
@@ -122,13 +134,17 @@ else:
     				waitUntilElementIsClickableAndClickTheElement(moneyTransfer);
     				System.out.println("Clicked on Money Transfer");
     				
+    				//display moneyTransferPage
+    				waitUntilElementIsVisible(moneyTransferPage);
+    				System.out.println("Money Transafer page visible");
+    				
     				//display cash to account
     				waitUntilElementIsVisible(cashToAccount);
     				System.out.println("Cash to Account page visible");
     				
     				//Enter customer mobile number
     				waitUntilElementIsVisible(customerMobileNumber);
-    				customerMobileNumber.sendKeys(usrData.get("MOBILENUMBER"));
+    				customerMobileNumber.sendKeys(usrData.get("CUSTOMERNUMBER"));
     				System.out.println("Entered Customer Mobile Number");
     				
     				//display limit remaining
@@ -154,19 +170,29 @@ else:
     				//Enter Amount to be transferred
     				waitUntilElementIsVisible(amountToBeTransferred);
     				amountToBeTransferred.sendKeys(usrData.get("AMOUNT"));
+    				 int amount = Integer.parseInt(usrData.get("AMOUNT"));
+    				 if (amount > 5000) {
+    					    // Continue with flow for amount less than 5000
     				System.out.println("Entered Amount");
     				
     				//Click on Submit Button
     				waitUntilElementIsClickableAndClickTheElement(submitButton);
     				System.out.println("Clicked on Submit Button");
+    				
+    				waitUntilElementIsClickableAndClickTheElement(submitButton);
+    				System.out.println("Clicked on Submit Button");
+    				 }
+    				 
+    				//Click on Submit Button
+    				waitUntilElementIsClickableAndClickTheElement(submitButton);
+    				System.out.println("Clicked on Submit Button");
+    				
+    				waitUntilElementIsClickableAndClickTheElement(submitButton);
+    				System.out.println("Clicked on Submit Button");
     			
     				
     				//Click on Agent Wallet
-    					if (getWalletBalanceFromIni("GetCashout", "").equals("0.00")) {
-    						System.out.println("Cashout Balance is 0, hence money will be deducted from Main Wallet");
-    					} else {
-    						commonUtils.chooseWalletScreen(usrData);
-    					}
+    				
 
     					if (!getWalletFromIni("GetWallet", "").equalsIgnoreCase("-")) {
     						waitUntilElementIsVisible(MPINScreen);
@@ -180,7 +206,7 @@ else:
     						System.out.println("MPIN entered");
 
     						String mpinButtonName = usrData.get("MPINSCREENBUTTON");
-    						String mpinScreenButtonXpath = "//h5[contains(text(),'Enter 4 digit PIN')]/parent::div/"
+    						String mpinScreenButtonXpath = "//h5[contains(text(),' Enter 4 digit PIN')]/parent::div/"
     								+ "following-sibling::div/following-sibling::div/button[contains(text(),'"
     								+ mpinButtonName + "')]";
     						WebElement mpinScreenButton = wdriver.findElement(By.xpath(mpinScreenButtonXpath));

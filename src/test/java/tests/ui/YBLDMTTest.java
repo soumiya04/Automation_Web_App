@@ -15,17 +15,17 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import in.novopay.platform_ui.pages.web.YBLMoneyTransferPage;
+import in.novopay.platform_ui.pages.web.YBLDmtPage;
 import in.novopay.platform_ui.utils.BasePage;
 import in.novopay.platform_ui.utils.JavaUtils;
 
-public class YBLDMTTest {
-	String featureName = "YBL DMT page";
+public class YBLDmtTest {
+	String featureName = "YBL dmt page";
 	public WebDriver wdriver;
 	private BasePage mBasePage = new BasePage(wdriver);
-	private YBLMoneyTransferPage wYBLMoneyTransferPage;
+	private YBLDmtPage YBLDmtPage;
 	private Map<String, String> usrData;
-	public String sheetname = "YBLMoneyTransferPage", workbook = "WebAppUITestData";
+	public String sheetname = "YBLDmtPage", workbook = "WebAppUITestData";
 
 	private JavaUtils javaUtils = new JavaUtils();
 
@@ -36,7 +36,7 @@ public class YBLDMTTest {
 	}
 
 	@Test(dataProvider = "getData")
-	public void yblMoneyTransferTest(HashMap<String, String> usrData)
+	public void yBLDmtTest(HashMap<String, String> usrData)
 			throws InterruptedException, AWTException, IOException, ClassNotFoundException {
 		this.usrData = usrData;
 		if (wdriver == null) {
@@ -46,8 +46,8 @@ public class YBLDMTTest {
 			System.out.println("LAUNCHING THE WEB APP FOR FLOW : " + usrData.get("TCID"));
 		}
 
-		wYBLMoneyTransferPage = new YBLMoneyTransferPage(wdriver);
-		wYBLMoneyTransferPage.yblMoneyTransfer(usrData);
+		YBLDmtPage = new YBLDmtPage(wdriver);
+		YBLDmtPage.yblDmt(usrData);
 	}
 
 	@AfterClass
@@ -57,4 +57,25 @@ public class YBLDMTTest {
 			mBasePage.closeBrowser();
 		}
 	}
+
+	@DataProvider
+	public Object[][] getData() throws EncryptedDocumentException, InvalidFormatException, IOException {
+
+		return mBasePage.returnAllUniqueValuesInMap(workbook, sheetname, "no-check");
+	}
+
+	// STORING EXECUTION RESULTS IN EXCEL
+	@AfterMethod
+	public void result(ITestResult result) throws InvalidFormatException, IOException {
+
+		String failureReason = "";
+
+		if (!result.isSuccess()) {
+			failureReason = result.getThrowable() + "";
+		}
+		String[] execeutionDtls = { JavaUtils.configProperties.get("buildNumber"), featureName, usrData.get("TCID"),
+				usrData.get("DESCRIPTION"), javaUtils.getExecutionResultStatus(result.getStatus()), failureReason };
+		javaUtils.writeExecutionStatusToExcel(execeutionDtls);
+	}
+
 }

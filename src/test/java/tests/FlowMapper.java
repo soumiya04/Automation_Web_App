@@ -87,8 +87,8 @@ public class FlowMapper {
 			dbUtils.updateDmtBcAgentId("NOV2160858", mobileNumFromIni());
 		} else if (!usrData.get("FEATURE").equalsIgnoreCase("-")) {
 			dbUtils.updateRBLEKYCStatus("APPROVED", mobileNumFromIni());
-			dbUtils.updateDmtPartner("RBL", mobileNumFromIni());
-			dbUtils.updateAepsPartner("RBL", mobileNumFromIni());
+			dbUtils.updateDmtPartner("YBL", mobileNumFromIni());
+			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
 			if (usrData.get("FEATURE").equalsIgnoreCase("Money Transfer")) {
 				dbUtils.updateDmtBcAgentId("NOV1000704", mobileNumFromIni());
 			} else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {

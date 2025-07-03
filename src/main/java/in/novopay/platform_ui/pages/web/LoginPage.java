@@ -166,7 +166,7 @@ public class LoginPage extends BasePage {
 						waitUntilElementIsVisible(novopayHomePage);
 						
 						System.out.println("Page displayed");
-				      bannerCloseLogin();
+				    //  bannerCloseLogin();
 				      
 				      eyeIcon();
 			

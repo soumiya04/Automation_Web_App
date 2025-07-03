@@ -328,6 +328,8 @@ public class CommonUtils extends BasePage {
 		Assert.assertEquals(replaceSymbols(mainWalletScreenBalance.getText()),
 				getWalletBalanceFromIni("GetRetailer", ""));
 		System.out.println("Main Wallet balance: " + mainWalletScreenBalance.getText());
+		Thread.sleep(2000);
+
 		if (usrData.get("ASSERTION").equalsIgnoreCase("Main < Amount")
 				|| usrData.get("ASSERTION").equalsIgnoreCase("Main=0 Cashout!=0")
 				|| usrData.get("ASSERTION").equalsIgnoreCase("Amount > Both Wallets")) {
