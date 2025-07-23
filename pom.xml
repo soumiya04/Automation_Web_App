@@ -60,6 +60,12 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<!-- allure plugin-->
+			<plugin>
+  <groupId>io.qameta.allure</groupId>
+  <artifactId>allure-maven</artifactId>
+  <version>2.11.2</version>
+</plugin>
 		
 		<plugin>
   			<artifactId>maven-assembly-plugin</artifactId>
@@ -167,6 +173,12 @@
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpclient</artifactId>
     <version>4.5.13</version>
+</dependency>
+ <!-- allure-->
+ <dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-testng</artifactId>
+    <version>2.23.0</version> <!-- latest version -->
 </dependency>
 
 
