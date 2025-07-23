@@ -71,12 +71,12 @@ public class FlowMapper {
 			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
 			dbUtils.updateYblTwoFAStatus(fingpayTwoFAFromIni(), mobileNumFromIni());
 		}
-		else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {
-			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
+		/*else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {
+			dbUtils.updateAepsPartner("FINGPAY", mobileNumFromIni());
 			dbUtils.updateDepositerPartner("YBL", mobileNumFromIni());
 			dbUtils.updateAadhaarpayPartner("YBL", mobileNumFromIni());
 	
-		}
+		}*/
 		else if (usrData.get("FEATURE").equalsIgnoreCase("NTwoFA")) {
 			dbUtils.updateAepsPartner("NSDL", mobileNumFromIni());
 			dbUtils.updatensdlTwoFAStatus(nsdlTwoFAFromIni(), mobileNumFromIni());
@@ -112,6 +112,25 @@ public class FlowMapper {
 				else if (contract.equalsIgnoreCase("FINGPAY")) {
 					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_ONBOARDING_STATUS", "ONBOARDED");
 					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_EKYC_STATUS", "SUCCESS");
+					dbUtils.updateDepositerPartner("FINGPAY", mobileNumFromIni());
+					dbUtils.updateAadhaarpayPartner("FINGPAY", mobileNumFromIni());
+					dbUtils.updateFingpayTwoFAStatus(fingpayTwoFATodayFromIni(), mobileNumFromIni());
+					
+				}
+				else if (contract.equalsIgnoreCase("FINGPAY_DEPOSIT")) {
+					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_ONBOARDING_STATUS", "ONBOARDED");
+					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_EKYC_STATUS", "SUCCESS");
+					dbUtils.updateDepositerPartner("FINGPAY", mobileNumFromIni());
+					dbUtils.updateAadhaarpayPartner("FINGPAY", mobileNumFromIni());
+					dbUtils.updateFingpayTwoFAStatus(fingpayTwoFATodayFromIni(), mobileNumFromIni());
+					
+				}
+				else if (contract.equalsIgnoreCase("FINGPAY_AADHAAR_PAY")) {
+					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_ONBOARDING_STATUS", "ONBOARDED");
+					commonUtils.verifyAndInsertValueInOrgAttribute("FINGPAY_EKYC_STATUS", "SUCCESS");
+					dbUtils.updateAadharpayFingpayTwoFAStatus(fingpayTwoFATodayFromIni(), mobileNumFromIni());
+					dbUtils.updateDepositerPartner("FINGPAY", mobileNumFromIni());
+					dbUtils.updateAadhaarpayPartner("FINGPAY", mobileNumFromIni());
 					
 				}
 			} else if (contract.equalsIgnoreCase("CMS")) {
@@ -248,6 +267,20 @@ public class FlowMapper {
 	    // Pass the value to dbUtils.getFingpayTwoFAFromIni
 	    return dbUtils.getFingpayTwoFAFromIni(randomValue);
     }
+	
+	
+	//get fingpay today two from ini file
+	
+	public String fingpayTwoFATodayFromIni() {
+		  // Generate todays's date in yyMMdd format
+	    
+String todayDate = LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMyy"));
+	    // Append the date to the Random value for the twoFAStatus
+	    String randomValue = todayDate ;
+
+	    // Pass the value to dbUtils.getFingpayTwoFAFromIni
+	    return dbUtils.getFingpayTwoFAFromIni(randomValue);
+	}
 	// Get YBL TwoFA from Ini file
 	public String yblTwoFAFromIni() {
 		  // Generate yesterday's date in yyMMdd format

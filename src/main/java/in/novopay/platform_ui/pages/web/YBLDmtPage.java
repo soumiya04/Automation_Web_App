@@ -170,8 +170,7 @@ else:
     				//Enter Amount to be transferred
     				waitUntilElementIsVisible(amountToBeTransferred);
     				amountToBeTransferred.sendKeys(usrData.get("AMOUNT"));
-    				 int amount = Integer.parseInt(usrData.get("AMOUNT"));
-    				 if (amount > 5000) {
+    				
     					    // Continue with flow for amount less than 5000
     				System.out.println("Entered Amount");
     				
@@ -181,7 +180,7 @@ else:
     				
     				waitUntilElementIsClickableAndClickTheElement(submitButton);
     				System.out.println("Clicked on Submit Button");
-    				 }
+    				 
     				 
     				//Click on Submit Button
     				waitUntilElementIsClickableAndClickTheElement(submitButton);

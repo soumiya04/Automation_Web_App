@@ -17,7 +17,7 @@ public class SupportRequestPage extends BasePage {
     WebElement menu;
     @FindBy(xpath = "//*[@class='slimScrollBar']")
     WebElement scrollBar;
-    @FindBy(xpath = "//span[text()='Support Request']")
+    @FindBy(xpath = "//span[text()='Raise a request']")
     WebElement supportRequest;
     @FindBy(xpath = "//h1[@class='page-title d-inline-block mb-16']")
     WebElement supportrequestpageTitle;
@@ -51,6 +51,10 @@ public class SupportRequestPage extends BasePage {
     @FindBy(xpath = "//button[text()=' Ok ']")
     WebElement okButton;
 
+    @FindBy(xpath = "(//i[@class='fa fa-caret-up'])[1]")
+   	WebElement dropdown;
+
+    
     // Load all objects
     public SupportRequestPage(WebDriver wdriver) {
         super(wdriver);
@@ -61,7 +65,16 @@ public class SupportRequestPage extends BasePage {
         try {
             //clickElement(menu);
             //scrollElementDown(scrollBar, supportRequest);
-            scrollToElement(supportRequest);
+           // scrollToElement(supportRequest);
+        	waitUntilElementIsClickableAndClickTheElement(dropdown);      	 
+        	waitUntilElementIsClickableAndClickTheElement(dropdown); 
+        	waitUntilElementIsClickableAndClickTheElement(dropdown);
+        	waitUntilElementIsClickableAndClickTheElement(dropdown);
+        	waitUntilElementIsClickableAndClickTheElement(dropdown);
+        	waitUntilElementIsClickableAndClickTheElement(dropdown);
+        	
+        	 System.out.println("Clicked");
+        	
          waitUntilElementIsClickableAndClickTheElement(supportRequest);            
             System.out.println("supportRequest option clicked");
             waitUntilElementIsVisible(supportrequestpageTitle);

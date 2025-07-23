@@ -115,6 +115,16 @@ import in.novopay.platform_ui.utils.DBUtils;
         @FindBy(xpath =" //div[text()=' Tata Capital ']")
         WebElement tatacapitall;
 		
+        @FindBy(xpath = "//span[normalize-space(text())='HDB Finance']")
+    	WebElement hbdCms;
+        
+        @FindBy(xpath = "//div[@class='cross-icon']/img[contains(@src, 'cross_icon.png')]")
+    	WebElement closeButton;
+        
+        @FindBy(xpath = "//input[@id='site-search']")
+    	WebElement selectField;
+        
+        
          
  
         // Load all objects
@@ -137,8 +147,12 @@ import in.novopay.platform_ui.utils.DBUtils;
 		//	commonUtils.refreshBalance();
 			waitUntilElementIsVisible(novopayHomePage);
 			System.out.println("Home page Visible");
+			waitUntilElementIsClickableAndClickTheElement(hbdCms);
+			  waitUntilElementIsClickableAndClickTheElement(closeButton);
+				waitUntilElementIsClickableAndClickTheElement(selectField);
+				selectField.sendKeys("Tata");
 			   // Click on Tata Capital  option
-            waitUntilElementIsClickableAndClickTheElement(tatacapital);
+            waitUntilElementIsClickableAndClickTheElement(tatacapitall);
                System.out.println("Tata Capital icon clicked");
 			 
 			

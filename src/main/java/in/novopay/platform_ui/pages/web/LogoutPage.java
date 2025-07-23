@@ -25,7 +25,9 @@ public class LogoutPage extends BasePage {
 	 WebElement dropdown;
 	 
 	//@FindBy(xpath = "//span[contains(text(),'Logout')]/parent::a")
-	 @FindBy(xpath = "//li[@class='dropdown-item']//span[text()='Logout']")
+	// @FindBy(xpath = "//li[@class='dropdown-item']//span[text()='Logout']")
+	 @FindBy(xpath = "//img[@src='assets/sidebar/General/LogoutWhite.svg' and @class='navbar-brand header-boder']")
+	
 	WebElement logout;
 
 	@FindBy(id = "regMobileNumber")
@@ -38,8 +40,8 @@ public class LogoutPage extends BasePage {
 		System.out.println("Novopay Home Page visble");
 		//waitUntilElementIsClickableAndClickTheElement(homePage);
 		//System.out.println("Clicked on Homeicon");
-		waitUntilElementIsClickableAndClickTheElement(dropdown);
-	    System.out.println("Dropdown clicked");	
+		//waitUntilElementIsClickableAndClickTheElement(dropdown);
+	  //  System.out.println("Dropdown clicked");	
 		waitUntilElementIsClickableAndClickTheElement(logout);
 		System.out.println("logging out");
 		waitUntilElementIsVisible(mobNum);

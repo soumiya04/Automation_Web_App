@@ -346,10 +346,149 @@ public class FINGPAYBankingPage extends BasePage {
 		@FindBy(xpath = "//div[contains(@class,'mini-statement-modal')]//strong[contains(text(),'Reference ID')]/parent::span/parent::div/following-sibling::div//span")
 		WebElement miniStatementRefNo;
 
-		@FindBy(xpath = "//div[contains(@class,'mini-statement-modal')]//span[contains(text(),'Customer A/C Balance:')]/parent::div/following-sibling::div//span")
-		WebElement miniStatementCustAcBalance;
+		@FindBy(xpath = "//span[text()='Cash Deposit']")
+		WebElement CashDepositTab;
+		
+		
+		@FindBy(xpath = "//input[@id='money-transfer-mobile-number']")
+		WebElement CashDepositMobileNumberField;
+		
+		@FindBy(xpath = "//input[@id='deposit-aadharNumber']")
+		WebElement CashDepositAadhaaepayField;
+		
+		@FindBy(xpath = "//app-deposit//input[@id='money-transfer-mobile-number']")
+		WebElement depositMobNum;
 
+		@FindBy(xpath = "//app-deposit//input[@id='money-transfer-mobile-number']/parent::div//li")
+		WebElement depositMobNumError;
 
+		@FindBy(xpath = "//app-deposit//input[@id='aeps-deposit-aadhar-number']")
+		WebElement depositAadhaarNum;
+
+		@FindBy(xpath = "//app-deposit//input[@id='aeps-deposit-aadhar-number']/parent::div//li")
+		WebElement depositAadhaarNumError;
+
+		@FindBy(xpath = "//app-deposit//input[@id='money-transfer-amount-to-be-transferred']")
+		WebElement depositAmount;
+
+		@FindBy(xpath = "//app-deposit//input[@id='money-transfer-amount-to-be-transferred']/parent::div//li")
+		WebElement depositAmountError;
+
+		@FindBy(xpath = "//app-deposit//input[contains(@id,'aadhaarDataConsent') and contains(@class,'ng-invalid')]")
+		WebElement depositConsentCheckbox;
+
+		@FindBy(xpath = "//app-deposit//input[contains(@id,'aadhaarDataConsent') and contains(@class,'ng-invalid')]/parent::span/p")
+		WebElement depositConsentMessage;
+
+		@FindBy(xpath = "//app-deposit//input[contains(@id,'aadhaarDataConsent') and contains(@class,'ng-invalid')]/parent::span/p/a")
+		WebElement depositConsentLink;
+
+		@FindBy(xpath = "//app-deposit//input[contains(@id,'aadhaarDataConsent') and contains(@class,'ng-invalid')]/parent::span/following-sibling::ul/li")
+		WebElement depositConsentError;
+
+		@FindBy(xpath = "//div[contains(@class,'scan_finger_container')]")
+		WebElement depositScanFingerprint;
+
+		@FindBy(xpath = "//h4[contains(text(),'Success!')]")
+		WebElement depositScanSuccessScreen;
+
+		@FindBy(xpath = "//div[contains(text(),'Fingerprints scanned successfully')]")
+		WebElement depositFingerprintSuccess;
+
+		@FindBy(xpath = "//span[contains(text(),'Fingerprint scanned successfully!')]")
+		WebElement depositFingerprintGreen;
+
+		@FindBy(xpath = "//span[text()='Click to scan fingerprint*']")
+		WebElement depositFingerprintUnscanned;
+
+		
+		
+		@FindBy(xpath = "//button[contains(text(),'Ok')]")
+		WebElement depositFingerprintScreenOkButton;
+
+		@FindBy(xpath = "//h5[contains(text(),'Enter 4 digit PIN')]")
+		WebElement mpinScreen;
+
+		@FindBy(xpath = "//input[@id='money-transfer-mpin-number']")
+		WebElement enterMpin;
+
+		@FindBy(xpath = "//h5[contains(text(),'Enter 4 digit PIN')]/parent::div/following-sibling::div[2]/button[contains(text(),'Submit')]")
+		WebElement submitMpin;
+
+		@FindBy(xpath = "//h5[contains(text(),'Enter 4 digit PIN')]/parent::div/following-sibling::div[2]/button[contains(text(),'Cancel')]")
+		WebElement cancelMpin;
+
+		@FindBy(xpath = "//button[contains(text(),'Submit')]")
+		WebElement depositSubmit;
+
+		@FindBy(xpath = "//button[contains(text(),'Clear')]")
+		WebElement depositClear;
+
+		@FindBy(xpath = "//button[text()=' Print Receipt ']")
+		WebElement depositPrintRecipt;
+
+		@FindBy(xpath = "//button[normalize-space(text())='Done']")
+		WebElement depositDoneButton;
+		
+		
+		@FindBy(xpath = "//h4[text()=' Success! ']")
+		WebElement depositSuccessScreen;
+		
+		
+		@FindBy(xpath = "//input[@id='money-transfer-amount-to-be-transferred']")
+		WebElement depositAmountField;
+		
+		@FindBy(xpath = "//span[text()='Aadhaar Pay']")
+		WebElement aadhaarpayTab;
+		
+		@FindBy(xpath = "//input[contains(@class, 'form-control') and contains(@class, 'textbox')]")
+		WebElement aadhaarpayMobileField;
+		
+		@FindBy(xpath = "//input[contains(@class, 'textbox') and @placeholder='12 digit Aadhaar Number']")
+		WebElement aadhaarpayAadhaarpayField;
+		
+		@FindBy(xpath = "//span[text()='Click to scan fingerprint*']")
+		WebElement aadhaarpayFingerprintUnscanned;
+			
+		@FindBy(xpath = "//span[text()='Click to scan fingerprint*']")
+		WebElement aadhaarpayFingerprintscanned;
+		
+		@FindBy(xpath = "//h4[text()=' Success! ']")
+		WebElement aadhaarpayScanSuccessScreen;
+	
+		@FindBy(xpath = "//span[text()='Fingerprint scanned successfully!']")
+		WebElement aadhaarpayFingerprintSuccess;
+		
+		@FindBy(xpath = "//button[text()=' Ok ']")
+		WebElement aadhaarpayFingerprintScreenOkButton;
+		
+		@FindBy(xpath = "//button[text()=' Submit ']")
+		WebElement aadhaarpaySubmitButton;
+		
+		@FindBy(xpath = "//h4[normalize-space(text())='Success!']")
+		WebElement aadhaarpaySuccessScreen;
+		
+		@FindBy(xpath = "//button[normalize-space(text())='Print Receipt']")
+		WebElement aadhaarpayPrintRecipt;
+		
+		@FindBy(xpath = "//button[normalize-space(text())='Done']")
+		WebElement aadhaarpayDoneButton;
+			
+		@FindBy(xpath = "//div[@class='input-group']/input[@id='5']")
+		WebElement aadhaarpayAmountField;
+		
+		
+		@FindBy(xpath = "//h4[text()=' Confirm the details ']")
+		WebElement aaahaarpayConfirmDetails;
+		
+		@FindBy(xpath = "//div[@class='modal-footer']//button[2]")
+		WebElement aaahaarpayConfirmDetailsSubmit;
+		
+		
+		
+			
+		
+		
 		
 	// Load all objects
 	public FINGPAYBankingPage(WebDriver wdriver) {
@@ -443,7 +582,7 @@ public class FINGPAYBankingPage extends BasePage {
 						waitUntilElementIsVisible(balanceEnquirySubmit);
 						waitUntilElementIsClickableAndClickTheElement(balanceEnquirySubmit);
 						System.out.println("Submit button clicked");
-						commonUtils.processingScreen();
+						//commonUtils.processingScreen();
 
 						if (usrData.get("TXNSCREENBUTTON").equals("Process in Background")) {
 							waitUntilElementIsVisible(processInBackgroundButton);
@@ -455,7 +594,7 @@ public class FINGPAYBankingPage extends BasePage {
 
 							if (aepsTxnScreen.getText().equalsIgnoreCase("Success!")) {
 								if (aepsTxnScreenType.getAttribute("class").contains("completed")) {
-									assertionOnBalanceEnquirySuccessScreen(usrData);
+									//assertionOnBalanceEnquirySuccessScreen(usrData);
 									if (usrData.get("ASSERTION").contains("SMS")) {
 										assertionOnBalanceEnquirySMS(usrData);
 									}
@@ -557,35 +696,35 @@ public class FINGPAYBankingPage extends BasePage {
 						System.out.println("Submit button clicked");
 						Thread.sleep(1000);
 						waitUntilElementIsClickableAndClickTheElement(submitButton);
-					commonUtils.processingScreen();
-					if (usrData.get("TXNSCREENBUTTON").equals("Process in Background")) {
-						waitUntilElementIsClickableAndClickTheElement(processInBackgroundButton);
-						System.out.println("Process in Background button clicked");
-					} else {
-						waitUntilElementIsVisible(aepsTxnScreen);
-						System.out.println("Txn screen displayed");
-						if (aepsTxnScreen.getText().equalsIgnoreCase("Success!")) {
-							if (aepsTxnScreenType.getAttribute("class").contains("completed")) {
-								assertionOnWithdrawalSuccessScreen(usrData);
-								if (usrData.get("ASSERTION").contains("SMS")) {
-									assertionOnWithdrawalSMS(usrData);
+				//	commonUtils.processingScreen();
+						if (usrData.get("TXNSCREENBUTTON").equals("Process in Background")) {
+							waitUntilElementIsVisible(processInBackgroundButton);
+							waitUntilElementIsClickableAndClickTheElement(processInBackgroundButton);
+							System.out.println("Process in Background button clicked");
+						} else {
+							waitUntilElementIsVisible(aepsTxnScreen);
+							System.out.println("Txn screen displayed");
+
+							if (aepsTxnScreen.getText().equalsIgnoreCase("Success!")) {
+								if (aepsTxnScreenType.getAttribute("class").contains("completed")) {
+								//	assertionOnBalanceEnquirySuccessScreen(usrData);
+									if (usrData.get("ASSERTION").contains("SMS")) {
+										assertionOnBalanceEnquirySMS(usrData);
+									}
+									if (usrData.get("TXNSCREENBUTTON").equals("Save")) {
+										waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenSaveButton);
+										System.out.println("Save button clicked");
+									} else if (usrData.get("TXNSCREENBUTTON").equals("Print")) {
+										waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenPrintButton);
+										System.out.println("Print button clicked");
+									}
+									waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenDoneButton);
+									System.out.println("Done button clicked");
 								}
-								if (usrData.get("TXNSCREENBUTTON").equals("Save")) {
-									waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenSaveButton);
-									System.out.println("Save button clicked");
-								} else if (usrData.get("TXNSCREENBUTTON").equals("Print")) {
-									waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenPrintButton);
-									System.out.println("Print button clicked");
-								}
-								waitUntilElementIsClickableAndClickTheElement(aepsTxnScreenDoneButton);
-								System.out.println("Done button clicked");
-								
-					}
-						
-					} 
-					}
-				   }
-				}
+							}
+						}
+				    }
+				} 
 				else if (usrData.get("TXNTYPE").equalsIgnoreCase("Mini Statement")) {
 				    // Mini Statement logic
 				    System.out.println("Mini Statement transaction");
@@ -685,27 +824,257 @@ public class FINGPAYBankingPage extends BasePage {
 				                }
 				            }
 				        }
-				    }
+					}
 				}
+					else if (usrData.get("TXNTYPE").equalsIgnoreCase("Deposit")) {
+					    // Deposit transaction
+					    System.out.println("Deposit transaction");
+
+					    waitUntilElementIsClickableAndClickTheElement(CashDepositTab);
+					    System.out.println("Deposit tab clicked");
+
+					    // Mobile number entry
+					    waitUntilElementIsClickableAndClickTheElement(CashDepositMobileNumberField);
+					    CashDepositMobileNumberField.sendKeys(usrData.get("MOBNUM"));
+					    System.out.println("Mobile number " + usrData.get("MOBNUM") + " entered");
+
+					    // Field level validation in Mobile field
+					    if (usrData.get("ASSERTION").equalsIgnoreCase("Blank MN")) {
+					        waitUntilElementIsVisible(balanceEnquiryMobNumError);
+					        Assert.assertEquals(balanceEnquiryMobNumError.getText(), "Required Field");
+					        System.out.println(balanceEnquiryMobNumError.getText());
+					    } else if (usrData.get("ASSERTION").equalsIgnoreCase("MN < 10 digits")
+					            || usrData.get("ASSERTION").equalsIgnoreCase("Invalid MN")) {
+					        waitUntilElementIsVisible(balanceEnquiryMobNumError);
+					        Assert.assertEquals(balanceEnquiryMobNumError.getText(), "Invalid mobile number");
+					        System.out.println(balanceEnquiryMobNumError.getText());
+					    }
+
+					    // Bank Entry
+					    waitUntilElementIsClickableAndClickTheElement(bankfield);
+					    System.out.println("Bank Field clicked");
+					    bankfield.sendKeys(usrData.get("BANKNAME"));
+					    System.out.println(usrData.get("BANKNAME") + " entered");
+					    bankfield.sendKeys(Keys.ENTER);
+					    Thread.sleep(1000);
+					    System.out.println(usrData.get("BANKNAME") + " selected");
+
+					    // Aadhaar Entry
+					    waitUntilElementIsClickableAndClickTheElement(CashDepositAadhaaepayField);
+					    CashDepositAadhaaepayField.sendKeys(usrData.get("AADHAAR"));
+					    System.out.println("Aadhaar number " + usrData.get("AADHAAR") + " entered");
+
+					    // Field level validation in Aadhaar field
+					    if (usrData.get("ASSERTION").equalsIgnoreCase("Blank Aadhaar")) {
+					        waitUntilElementIsVisible(depositAadhaarNumError);
+					        Assert.assertEquals(depositAadhaarNumError.getText(), "Required Field");
+					        System.out.println(depositAadhaarNumError.getText());
+					    } else if (usrData.get("ASSERTION").equalsIgnoreCase("Aadhaar < 12 digits")) {
+					        waitUntilElementIsVisible(depositAadhaarNumError);
+					        Assert.assertEquals(depositAadhaarNumError.getText(), "Enter 12 digit Aadhaar or 16 digit VID");
+					        System.out.println(depositAadhaarNumError.getText());
+					    } else if (usrData.get("ASSERTION").equalsIgnoreCase("Invalid Aadhaar")) {
+					        waitUntilElementIsVisible(miniStatementAadhaarNumError2);
+					        Assert.assertEquals(miniStatementAadhaarNumError2.getText(), "Enter a valid Aadhaar number or VID");
+					        System.out.println(miniStatementAadhaarNumError2.getText());
+					    }
 				
-			
+						 // Amount Entry
+						    waitUntilElementIsClickableAndClickTheElement(depositAmountField);
+						    depositAmountField.sendKeys(usrData.get("AMOUNT"));
+						    System.out.println("Amount " + usrData.get("AMOUNT") + " entered");
+
+						 /*  // Field Level Validation for Amount
+						    if (usrData.get("ASSERTION").equalsIgnoreCase("Amount > Max")) {
+						        waitUntilElementIsVisible(depositAmountError);
+						        Assert.assertEquals(depositAmountError.getText(),
+						                "Amount entered exceeds your transaction limit ₹10,000.00");
+						        System.out.println(depositAmountError.getText());
+						    } else if (usrData.get("ASSERTION").equalsIgnoreCase("Amount < Min")) {
+						        waitUntilElementIsVisible(depositAmountError);
+						        Assert.assertEquals(depositAmountError.getText(), "Minimum amount should be ₹100.00");
+						        System.out.println(depositAmountError.getText());
+						    }*/
+
+					
+					    // Fingerprint Scanning
+					    if (usrData.get("SCAN").equalsIgnoreCase("Yes")) {
+					        Assert.assertEquals("Click to scan fingerprint*", depositFingerprintUnscanned.getText());
+					        waitUntilElementIsClickableAndClickTheElement(depositScanFingerprint);
+					        System.out.println("Scan fingerprint button clicked");
+					        waitUntilElementIsVisible(depositScanSuccessScreen);
+					        Assert.assertEquals("Fingerprints scanned successfully", depositFingerprintSuccess.getText());
+					        System.out.println(depositFingerprintSuccess.getText());
+					        waitUntilElementIsClickableAndClickTheElement(depositFingerprintScreenOkButton);
+					        System.out.println("Ok button clicked");
+					        waitUntilElementIsVisible(depositFingerprintGreen);
+					        Assert.assertEquals("Fingerprint scanned successfully!", depositFingerprintGreen.getText());
+					    }
+
+					    if (usrData.get("SUBMIT").equalsIgnoreCase("Yes")) {
+					        Thread.sleep(1000);
+					      waitUntilElementIsVisible(depositSubmit);
+					        waitUntilElementIsClickableAndClickTheElement(depositSubmit);
+					        System.out.println("Submit button clicked");
+					       // commonUtils.processingScreen();
+					        
+					    	commonUtils.chooseWalletScreen(usrData);
+				        	waitUntilElementIsClickableAndClickTheElement(mpinScreen);
+							if (usrData.get("MPIN").equalsIgnoreCase("Valid")) {
+								enterMpin.sendKeys(getAuthfromIni("MPIN"));
+							} else if (usrData.get("MPIN").equalsIgnoreCase("Invalid")) {
+								enterMpin.sendKeys("9999");
+							}
+							System.out.println("MPIN entered");
+							if (usrData.get("ASSERTION").equalsIgnoreCase("Insufficient Balance")) {
+								dbUtils.updateWalletBalance(mobileNumFromIni(), "retailer", "0");
+							}
+
+							if (usrData.get("MPIN").equalsIgnoreCase("Cancel")) {
+								waitUntilElementIsClickableAndClickTheElement(cancelMpin);
+								waitUntilElementIsVisible(depositFingerprintGreen);
+								System.out.println("Cancel button clicked");
+							} else {
+								waitUntilElementIsClickableAndClickTheElement(submitMpin);
+								System.out.println("MPIN submitted");
+							}
+
+					        if (usrData.get("TXNSCREENBUTTON").equals("Process in Background")) {
+					            waitUntilElementIsVisible(processInBackgroundButton);
+					            waitUntilElementIsClickableAndClickTheElement(processInBackgroundButton);
+					            System.out.println("Process in Background button clicked");
+					        } else {
+					        
+								
+					            waitUntilElementIsVisible(depositSuccessScreen);
+					            System.out.println("Txn screen displayed");
+
+					            if (depositSuccessScreen.getText().trim().equalsIgnoreCase("Success!")) {
+					                if (depositSuccessScreen.getAttribute("class").contains("completed")) {
+					                    assertionOnMiniStatementSuccessScreen(usrData);
+					                    waitUntilElementIsClickableAndClickTheElement(depositPrintRecipt);
+					                    System.out.println("Print button clicked");
+					                    try {
+					                        while (doneButtonDisabled.isDisplayed() == true) {
+					                            depositDoneButton.getText();
+					                        }
+					                        waitUntilElementIsClickableAndClickTheElement(depositDoneButton);
+					                        System.out.println("Done button clicked");
+					                    } catch (Exception e) {
+					                        e.printStackTrace();
+					                    }
+					                }
+					            }
+					        }
+					    }
+					
+					}
+					
+				if (usrData.get("TXNTYPE").equalsIgnoreCase("Aadhaarpay")) {
+
+	                  // Aadhaarpay tab
+					    System.out.println("Aaddhaarpay transaction tab clicked");
+					    waitUntilElementIsClickableAndClickTheElement(aadhaarpayTab);
+					  
+
+	                    //bank  entry
+						waitUntilElementIsClickableAndClickTheElement(bankfield);
+					    System.out.println("Bank Field clicked");
+					    bankfield.sendKeys(usrData.get("BANKNAME"));
+					    System.out.println(usrData.get("BANKNAME") + " entered");
+					    bankfield.sendKeys(Keys.ENTER);
+					    Thread.sleep(1000);
+					    System.out.println(usrData.get("BANKNAME") + " selected");
+						
+						 // Mobile number entry
+						waitUntilElementIsClickableAndClickTheElement(aadhaarpayMobileField);
+						aadhaarpayMobileField.sendKeys(usrData.get("MOBNUM"));
+						System.out.println("Mobile number " + usrData.get("MOBNUM") + " entered");
+						
+						// Aadhaar Entry
+					    waitUntilElementIsClickableAndClickTheElement(aadhaarpayAadhaarpayField);
+					    aadhaarpayAadhaarpayField.sendKeys(usrData.get("AADHAAR"));
+					    System.out.println("Aadhaar number " + usrData.get("AADHAAR") + " entered");
+					    
+					    //Amount field
+					
+					    waitUntilElementIsClickableAndClickTheElement(aadhaarpayAmountField);
+					    aadhaarpayAmountField.sendKeys(usrData.get("AMOUNT"));
+					    System.out.println("Amount " + usrData.get("AMOUNT") + " entered");
+						
+					 // Fingerprint Scanning
+					    if (usrData.get("SCAN").equalsIgnoreCase("Yes")) {
+					        Assert.assertEquals("Click to scan fingerprint*", aadhaarpayFingerprintUnscanned.getText());
+					        waitUntilElementIsClickableAndClickTheElement(aadhaarpayFingerprintscanned);
+					        System.out.println("Scan fingerprint button clicked");
+					        waitUntilElementIsVisible(aadhaarpayScanSuccessScreen);
+					        Assert.assertEquals("Fingerprint scanned successfully!", aadhaarpayFingerprintSuccess.getText());
+					        waitUntilElementIsClickableAndClickTheElement(aadhaarpayFingerprintScreenOkButton);
+					    }
+						  // Submission
+					    if (usrData.get("SUBMIT").equalsIgnoreCase("Yes")) {
+							Thread.sleep(1000);
+							waitUntilElementIsClickableAndClickTheElement(aadhaarpaySubmitButton);
+							System.out.println("Submit button clicked");
+							Thread.sleep(1000);
+							waitUntilElementIsVisible(aaahaarpayConfirmDetails);
+							System.out.println("Confirm detail Page is displaying");
+
+							waitUntilElementIsClickableAndClickTheElement(aaahaarpayConfirmDetailsSubmit);
+							System.out.println("Submit button clicked");
+							
+								
+								if (usrData.get("TXNSCREENBUTTON").equals("Process in Background")) {
+						            waitUntilElementIsVisible(processInBackgroundButton);
+						            waitUntilElementIsClickableAndClickTheElement(processInBackgroundButton);
+						            System.out.println("Process in Background button clicked");
+						        } else {
+						        
+									
+						            waitUntilElementIsVisible(aadhaarpaySuccessScreen);
+						            System.out.println("Txn screen displayed");
+
+						            if (depositSuccessScreen.getText().trim().equalsIgnoreCase("Success!")) {
+						                if (depositSuccessScreen.getAttribute("class").contains("completed")) {
+						                    assertionOnMiniStatementSuccessScreen(usrData);
+						                    waitUntilElementIsClickableAndClickTheElement(aadhaarpayPrintRecipt);
+						                    System.out.println("Print button clicked");
+						                    try {
+						                        while (doneButtonDisabled.isDisplayed() == true) {
+						                            aadhaarpayDoneButton.getText();
+						                        }
+						                        waitUntilElementIsClickableAndClickTheElement(aadhaarpayDoneButton);
+						                        System.out.println("Done button clicked");
+						                    } catch (Exception e) {
+						                        e.printStackTrace();
+						
+						                
+						                 }
+						                }
+						            }
+								 }
+						     }
+						                
+				}
+					
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Test Case Failed");
 			Assert.fail();
 		}
 					
-		
+			
 					
 	}
 	
 				// Verify details on success screen
-				public void assertionOnBalanceEnquirySuccessScreen(Map<String, String> usrData)
+			/*	public void assertionOnBalanceEnquirySuccessScreen(Map<String, String> usrData)
 						throws ClassNotFoundException, ParseException, InterruptedException {
 					Assert.assertEquals(aepsTxnScreenMessage.getText(), "Balance enquired successfully");
 					System.out.println(aepsTxnScreenMessage.getText());
 					txnDetailsFromIni("StoreTxnRefNo", balanceEnquiryRefNo.getText());
-				}
+				}*/
 				// SMS assertion
 				public void assertionOnBalanceEnquirySMS(Map<String, String> usrData) throws ClassNotFoundException {
 					String successSMS = "Balance in " + usrData.get("BANKNAME") + " a/c linked with Aadhaar  XXXX XXXX "
@@ -767,7 +1136,7 @@ public class FINGPAYBankingPage extends BasePage {
 					System.out.println(miniStatementTxnScreenMessage.getText());
 					txnDetailsFromIni("StoreTxnRefNo", miniStatementRefNo.getText());
 					try {
-						System.out.println("Customer A/C Balance: " + replaceSymbols(miniStatementCustAcBalance.getText()));
+						//System.out.println("Customer A/C Balance: " + replaceSymbols(miniStatementCustAcBalance.getText()));
 					} catch (Exception e) {
 						System.out.println("Customer A/C Balance not visible");
 					}

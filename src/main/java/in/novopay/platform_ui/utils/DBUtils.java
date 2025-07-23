@@ -1791,7 +1791,7 @@ public class DBUtils extends JavaUtils  {
 			stmt.executeUpdate(deleteQuery);
 			System.out.println("Deleting all contracts");
 			stmt.executeUpdate(insertQuery1);
-			stmt.executeUpdate(insertQuery2);
+			//stmt.executeUpdate(insertQuery2);
 
 			System.out.println("Inserting contract: rbl and " + contract.toLowerCase());
 			//System.out.println("Inserting contract:" + contract.toLowerCase());
@@ -1837,6 +1837,7 @@ public class DBUtils extends JavaUtils  {
 			org_code.add("FINGPAY_DEPOSIT");
 			org_code.add("YBL_AADHAAR_PAY");
 			org_code.add("FINGPAY_AADHAAR_PAY");
+
 
 			for (String code : org_code) {
 				String insertQuery = "INSERT INTO `contract` (`organization`, `partner_organization`) "
@@ -1931,13 +1932,13 @@ public class DBUtils extends JavaUtils  {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating DEPOSIT Partner as " + partner);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
 		}
 	}
-
-
 
 
 public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassNotFoundException {
@@ -1950,6 +1951,8 @@ public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassN
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating AADHAARPAY Partner as " + partner);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
@@ -2216,6 +2219,28 @@ public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassN
 			sqe.printStackTrace();
 		}
 	}
+	
+	public void updateAadharpayFingpayTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
+		try {
+			conn = createConnection("master");
+			String query = "UPDATE master.organization_attribute SET attr_value = '" + string
+					+ "' WHERE orgnization_id = (SELECT organization FROM master.user "
+					+ "WHERE id IN (SELECT user_id FROM master.user_attribute WHERE attr_value = '" + mobNum
+					+ "') AND `status` = 'ACTIVE') AND attr_key = 'FINGPAY_APAY_LAST_LOGIN_DATE';";
+			
+			
+			stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			System.out.println("Updating FINGPAY_APAY_LAST_LOGIN_DATE Status as " + string);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
+		} catch (SQLException sqe) {
+			System.out.println("Error executing query");
+			sqe.printStackTrace();
+		}
+	}
+	
+	
 	
 	public void updateYblTwoFAStatus(String string, String mobNum) throws ClassNotFoundException {
 		try {

@@ -170,7 +170,7 @@ public class TvsePage extends BasePage {
 		waitUntilElementIsClickableAndClickTheElement(selectField);
 		selectField.sendKeys("tvs");
 			
-			// Click on Swiggy icon
+			// Click on tvse icon
 	waitUntilElementIsClickableAndClickTheElement(TVSEIcon);
 		//	commonUtils.selectCmsBiller();
 			
