@@ -54,6 +54,9 @@ public class SupportRequestPage extends BasePage {
     @FindBy(xpath = "(//i[@class='fa fa-caret-up'])[1]")
    	WebElement dropdown;
 
+    @FindBy(xpath = "//img[@src='assets/Home/novopay.svg']")
+  	WebElement novopayHomePage;
+
     
     // Load all objects
     public SupportRequestPage(WebDriver wdriver) {
@@ -63,6 +66,8 @@ public class SupportRequestPage extends BasePage {
 
     public void supportRequest(Map<String, String> usrData) throws ClassNotFoundException, InterruptedException {
         try {
+        	waitUntilElementIsVisible(novopayHomePage);
+			System.out.println("Home page Visible");
             //clickElement(menu);
             //scrollElementDown(scrollBar, supportRequest);
            // scrollToElement(supportRequest);
