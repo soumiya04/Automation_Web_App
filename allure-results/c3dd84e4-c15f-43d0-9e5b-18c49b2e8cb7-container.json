@@ -1,0 +1,1 @@
+{"uuid":"c3dd84e4-c15f-43d0-9e5b-18c49b2e8cb7","name":"Default suite","children":["9d720444-1757-4978-9e39-3571fb251854"],"befores":[{"name":"generateIniFile","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1753438830121,"stop":1753438830140}],"afters":[],"start":1753438830108,"stop":1753438888091}

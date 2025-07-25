@@ -90,9 +90,15 @@ public class FlowMapper {
 			dbUtils.updateRBLEKYCStatus("APPROVED", mobileNumFromIni());
 			dbUtils.updateDmtPartner("YBL", mobileNumFromIni());
 			dbUtils.updateAepsPartner("YBL", mobileNumFromIni());
-			if (usrData.get("FEATURE").equalsIgnoreCase("Money Transfer")) {
-				dbUtils.updateDmtBcAgentId("NOV1000704", mobileNumFromIni());
-			} else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {
+			if (usrData.get("FEATURE").equalsIgnoreCase("Money Transfer-YBL")) {
+			  //dbUtils.updateDmtBcAgentId("NOV1000704", mobileNumFromIni());
+			  dbUtils. updateDmtPartner("YBL", mobileNumFromIni());
+			 
+			} else if (usrData.get("FEATURE").equalsIgnoreCase("Money Transfer-EZYPAY")) {
+				 
+				  dbUtils. updateDmtPartner("EZYPAY", mobileNumFromIni());
+			}
+			else if (usrData.get("FEATURE").equalsIgnoreCase("Banking")) {
 				dbUtils.updateAepsPartner(contract, mobileNumFromIni());
 				if (contract.equalsIgnoreCase("RBL")) {
 					commonUtils.verifyAndInsertValueInOrgAttribute("RBL_AEPS_TERMINAL_ID", "567765667126757");

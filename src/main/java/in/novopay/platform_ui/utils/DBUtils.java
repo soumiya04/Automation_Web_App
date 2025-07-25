@@ -2039,6 +2039,8 @@ public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassN
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			System.out.println("Updating DMT Partner as " + partner);
+			RedisRemoteFlush.flushRedisUsingJSch();
+			System.out.println("Flushall done");
 		} catch (SQLException sqe) {
 			System.out.println("Error executing query");
 			sqe.printStackTrace();
@@ -2060,6 +2062,8 @@ public void updateAadhaarpayPartner(String partner, String mobNum) throws ClassN
 			sqe.printStackTrace();
 		}
 	}
+	
+	
 
 	public void updateWalletTopupRequest() throws ClassNotFoundException {
 		try {

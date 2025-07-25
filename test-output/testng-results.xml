@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-24T15:54:12 IST" name="Default suite" finished-at="2025-07-24T15:54:45 IST" duration-ms="33403">
+  <suite started-at="2025-07-25T15:56:19 IST" name="Default suite" finished-at="2025-07-25T15:57:08 IST" duration-ms="49207">
     <groups>
     </groups>
-    <test started-at="2025-07-24T15:54:12 IST" name="Default test" finished-at="2025-07-24T15:54:45 IST" duration-ms="33403">
+    <test started-at="2025-07-25T15:56:19 IST" name="Default test" finished-at="2025-07-25T15:57:08 IST" duration-ms="49207">
       <class name="tests.FlowMapper">
-        <test-method is-config="true" signature="generateIniFile()[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:12 IST" name="generateIniFile" finished-at="2025-07-24T15:54:12 IST" duration-ms="20" status="PASS">
+        <test-method is-config="true" signature="generateIniFile()[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:56:19 IST" name="generateIniFile" finished-at="2025-07-25T15:56:19 IST" duration-ms="22" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateIniFile -->
-        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:13 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-24T15:54:14 IST" duration-ms="1154" status="PASS">
+        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:56:20 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-25T15:56:21 IST" duration-ms="1154" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flowMapperTest -->
-        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:14 IST" name="result" finished-at="2025-07-24T15:54:14 IST" duration-ms="291" status="PASS">
+        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:56:22 IST" name="result" finished-at="2025-07-25T15:56:22 IST" duration-ms="365" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,18 +33,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- result -->
-        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:14 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-24T15:54:42 IST" duration-ms="27807" status="PASS">
+        <test-method signature="flowMapperTest(java.util.HashMap)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:56:22 IST" name="flowMapperTest" data-provider="getData" finished-at="2025-07-25T15:57:05 IST" duration-ms="43451" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{CONTRACT=SR, PRIORITY=P0, STEP02=SupportRequestTest_001, TCID=FlowMapper_746, STEP03=LogoutTest_001, STEP01=LoginTest_001, STEP06=, STEP07=, STEP04=, STEP05=, RUNMODE=Yes, WALLET=Main, DESCRIPTION=Raise a Support Request, TESTTYPE=Positive, STEP08=, STEP09=, FEATURE=Support Request, VENDOR=, TYPE=}]]>
+                <![CDATA[{CONTRACT=NOVOPAY, PRIORITY=P0, STEP02=EZYPAYDmtTest_001, TCID=FlowMapper_764, STEP03=LogoutTest_001, STEP01=LoginTest_001, STEP06=, STEP07=, STEP04=, STEP05=, RUNMODE=Yes, WALLET=Main, DESCRIPTION=Verify the Ezypay dmt success Transaction, TESTTYPE=Positive, STEP08=, STEP09=, FEATURE=Money Transfer-EZYPAY, VENDOR=, TYPE=Positive}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flowMapperTest -->
-        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:42 IST" name="result" finished-at="2025-07-24T15:54:44 IST" duration-ms="1958" status="PASS">
+        <test-method is-config="true" signature="result(org.testng.ITestResult)[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:57:05 IST" name="result" finished-at="2025-07-25T15:57:07 IST" duration-ms="1928" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -55,7 +55,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- result -->
-        <test-method is-config="true" signature="killDriver()[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-24T15:54:44 IST" name="killDriver" finished-at="2025-07-24T15:54:45 IST" duration-ms="697" status="PASS">
+        <test-method is-config="true" signature="killDriver()[pri:0, instance:tests.FlowMapper@77102b91]" started-at="2025-07-25T15:57:07 IST" name="killDriver" finished-at="2025-07-25T15:57:08 IST" duration-ms="728" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- killDriver -->

@@ -1,0 +1,1 @@
+{"uuid":"c30806f9-5e75-4e7d-8811-5e550dbd49dc","name":"tests.FlowMapper.result","children":["c92b2881-61cc-4d49-88bb-bb89c8c1918c"],"description":"","befores":[],"afters":[{"name":"result","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1753437036136,"stop":1753437036558}],"start":1753437036136,"stop":1753437036559}
